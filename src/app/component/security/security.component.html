@@ -1,0 +1,202 @@
+
+<h2 class="text-center">Login Page</h2>
+
+
+<div class="text-center">
+<button (click)="showForm()" class="btn btn-success ">Show All Date</button>
+</div>
+
+<div *ngIf="isshowFormVisible" class="container  col-lg-4">
+    <form   #formData=ngForm  (ngSubmit)="readFormData(formData)" >
+        <div class="form-group">
+          <label for="exampleInputEmail1">UserName</label>
+          <input type="username" class="form-control" name="username"  required  #username="ngModel"  ngModel       >
+          <small id="userHelp" class="form-text text-muted">We'll never share your user details with anyone else.</small><br>
+          <span style="color:red"  *ngIf="username.touched && username.invalid" >UserName is required</span>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control"  name="password"  required  #pwd="ngModel"   ngModel>
+          <span style="color:red"   *ngIf="pwd.touched && pwd.invalid" >Password is mandartory</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="formData.invalid"  >Submit</button>
+
+
+        
+    </form>
+
+</div>
+<h6>{{response}}</h6>
+<div *ngIf="response && response.length > 0">
+  <table border="1">
+    <!-- Table headers -->
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <!-- Table body -->
+    <tbody>
+      <tr *ngFor="let admin of response">
+        <td>{{ admin.adminId }}</td>
+        <td>{{ admin.userName }}</td>
+        <td>{{ admin.password }}</td>
+        <td>{{ admin.role }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+<br>
+<div class="text-center">
+<button (click)="toggleForm()" class="btn btn-success">Add Admin</button>
+</div>
+
+
+<form *ngIf="isFormVisible" #myform="ngForm"  method="post"  class="container col-md-4" (ngSubmit)="insertEmployee(myform.value)">
+    
+    <div class="form-group">
+    <label>User Name:</label><input type="text" class="form-control"  #usernamecontrol="ngModel" name="userName"  required ngModel>
+    <span  style="color: red;"  *ngIf="usernamecontrol.touched && usernamecontrol.invalid">User Name is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Password:</label><input type="text" class="form-control"  #pwdcontrol="ngModel" name="password"  required ngModel>
+        <span  style="color: red;"  *ngIf="pwdcontrol.touched && pwdcontrol.invalid">Password is Mandatory</span>
+    </div>
+    
+
+    <button type="submit"  class="btn btn-primary" [disabled]="myform.invalid" >Submit</button>
+    
+    
+</form>
+
+  
+<br>
+<br>
+<div class="text-center">
+<button (click)="deleteForm()" class="btn btn-success">Delete Admin</button>
+</div>
+
+<div *ngIf="isdeleteFormVisible">
+<div  class="form-group">
+  <label for="deleteId">Enter ID to Delete:</label>
+  <input type="number" class="form-control" name="deleteId" [(ngModel)]="deleteId" required>
+</div>
+
+<!-- Modify the delete button to call the deleteById method with the entered ID -->
+<button type="button" class="btn btn-danger" (click)="deleteById()">Delete</button>
+</div>
+
+
+<br>
+<br>
+<div class="text-center">
+<button (click)="getForm()" class="btn btn-success">Get Details</button>
+</div>
+
+<div *ngIf="isgetFormVisible">
+<div  class="form-group">
+  <label for="deleteId">Enter ID to Get Details</label>
+  <input type="number" class="form-control" name="deleteId" [(ngModel)]="getId" required>
+</div>
+
+<!-- Modify the delete button to call the deleteById method with the entered ID -->
+<button type="button" class="btn btn-primary btn-sm" (click)="getById()">get</button>
+</div>
+{{getresponse|json}}
+<div *ngIf="getresponse">
+  <h2>Admin Details</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Admin ID</th>
+        <th>User Name</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ getresponse.adminId }}</td>
+        <td>{{ getresponse.userName }}</td>
+        <td>{{ getresponse.password }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<br>
+<br>
+<div class="text-center">
+  <button (click)="getFormName()" class="btn btn-success">Get Name</button>
+  </div>
+  <div *ngIf="isgetFormNameVisible">
+    <div  class="form-group">
+      <label for="deleteId">Enter Name to Get Details</label>
+      <input type="text" class="form-control" name="deleteId" [(ngModel)]="getName" required>
+    </div>
+    
+    <!-- Modify the delete button to call the deleteById method with the entered ID -->
+    <button type="button" class="btn btn-primary btn-sm" (click)="getByName()">get</button>
+    </div>
+    {{getresponseName|json}}
+    <div *ngIf="getresponseName">
+      <h2>Admin Details</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Admin ID</th>
+            <th>User Name</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ getresponseName.adminId }}</td>
+            <td>{{ getresponseName.userName }}</td>
+            <td>{{ getresponseName.password }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+<br>
+<br>
+<div class="text-center">
+  <button (click)="updateForm()" class="btn btn-success ">Update Admin</button>
+</div>
+<div *ngIf="isupdateFormVisible" class="container  col-lg-4">
+  <form   #formData=ngForm  (ngSubmit)="update(formData)" >
+    <div class="form-group">
+    
+      Admin Id:<input type="number" class="form-control" name="AdminId"  required  #AdminId="ngModel"  ngModel>
+      <span style="color:red"  *ngIf="username.touched && username.invalid" >UserName is required</span>
+    </div>
+    <div class="form-group">
+      
+      AdminName:<input type="username" class="form-control" name="username"  required  #username="ngModel"  ngModel>
+      <span style="color:red"  *ngIf="username.touched && username.invalid" >UserName is required</span>
+    </div>
+    <div class="form-group">
+      
+      Password:<input type="text" class="form-control"  name="password"  required  #pwd="ngModel"   ngModel>
+      <span style="color:red"   *ngIf="pwd.touched && pwd.invalid" >Password is mandartory</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="formData.invalid"  >Submit</button>
+  </form>
+</div>
+<br>
