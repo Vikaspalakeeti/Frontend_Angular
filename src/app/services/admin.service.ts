@@ -14,10 +14,12 @@ export class AdminService {
   constructor(private http:HttpClient) { }
 
   baseURL:string = 'http://localhost:8185/api/';
-
+ 
+Token:any;
   getGeneratedToken(requestBody: any){
 
-        return this.http.post(this.baseURL+"login/adminlogin",requestBody,{responseType: 'text' as 'json'});
+        this.Token= this.http.post(this.baseURL+"login/adminlogin",requestBody,{responseType: 'text' as 'json'});
+        return this.Token;
 
     }
 

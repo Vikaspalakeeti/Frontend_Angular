@@ -8,11 +8,6 @@ import { Admin } from 'src/app/model/Admin';
   templateUrl: './security.component.html',
   styleUrls: ['./security.component.css']
 })
-
-
-
-
-
 export class SecurityComponent {
   // Add this property to store the entered ID
   deleteId!: number;
@@ -24,6 +19,7 @@ export class SecurityComponent {
   getresponseName:any;
   token: any;
   authRequest: AuthRequest = new AuthRequest();
+  static token: any;
 
   constructor(private jwtService: AdminService, private admService: AdminService) {}
 
@@ -35,7 +31,7 @@ export class SecurityComponent {
 
   public getAccessToken(authRequest: any) {
     let response = this.jwtService.getGeneratedToken(authRequest);
-    response.subscribe((genToken) => {
+    response.subscribe((genToken: any) => {
       this.token = genToken;
       console.log(genToken);
       this.accessApi(this.token);
@@ -140,7 +136,3 @@ export class SecurityComponent {
   
 
 }
-
-
-
-

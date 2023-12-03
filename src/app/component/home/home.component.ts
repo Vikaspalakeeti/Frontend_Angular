@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { Admin } from 'src/app/model/Admin';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-home',
@@ -7,12 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  constructor(private  admService:AdminService){}
+
+
+
+
  
  
+
+
 
 
 
 
 }
-
-

@@ -1,31 +1,4 @@
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Make sure the body spans the entire viewport height */
-    background-image: url('../../../assets/cart.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* Other styles if needed */
-  }
-  h2.text-center {
-    text-align: center;
-    color: white;
-    background-color:indigo;
-  }
-
-  .main-container {
-    flex: 1; /* Make the main container grow to occupy remaining space */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-  }
-  
-  .content {
-    text-align: center;
-    /* Additional styles for the content area */
-  }
-  
-  
+p{
+    padding: 400px;
+    
+}

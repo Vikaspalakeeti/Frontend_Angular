@@ -1,18 +1,4 @@
-/* Set background image */
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Make sure the body spans the entire viewport height */
-  background-image: url('../../../assets/home2.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* Other styles if needed */
-}
-
-h2.text-center {
-  text-align: center;
-  color: white;
-  background-color: indigo;
+p{
+    padding: 400px;
+    
 }
