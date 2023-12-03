@@ -8,6 +8,11 @@ import { Admin } from 'src/app/model/Admin';
   templateUrl: './security.component.html',
   styleUrls: ['./security.component.css']
 })
+
+
+
+
+
 export class SecurityComponent {
   // Add this property to store the entered ID
   deleteId!: number;
@@ -135,3 +140,7 @@ export class SecurityComponent {
   
 
 }
+
+
+
+

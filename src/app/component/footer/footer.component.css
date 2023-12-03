@@ -10,9 +10,9 @@ footer{
     
     
     bottom: 0;
-    background: linear-gradient(to right, #333333, #000000);    color: #fff;
+    background: linear-gradient(to right,#000000,  rgb(0, 0, 0));    color: #fff;
     padding: 70px 0 30px ; 
-    border-top-left-radius: 80px;
+   
     font-size: 13px;
     line-height: 6px;
 
@@ -174,4 +174,25 @@ hr{
     }
 }
 
-
+.underline {
+    width: 100px;
+    height: 5px;
+    background: #767676;
+    border-radius: 3px;
+    position: absolute;
+    top: 40px; /* Increase this value to move the lines down */
+    left: 0px;
+  }
+  
+  .underline span {
+    width: 15px;
+    height: 100%;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    animation: moving 2s linear infinite;
+  }
+  
+  

@@ -1,0 +1,67 @@
+/* CSS for Customer Component */
+
+/* Center align the headings */
+h2.text-center {
+    text-align: center;
+    color: white;
+    background-color:indigo;
+  }
+
+  body {
+    background-image: url('../../../assets/menu2.jpg');
+    background-size: cover; /* This property ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    /* Other styles if needed */
+  }
+  
+
+  
+  /* Style for buttons */
+  .text-center button {
+    margin-bottom: 10px;
+  }
+  
+  /* Style for form container */
+  .container {
+    margin-top: 20px;
+  }
+  
+  /* Style for form inputs */
+  .form-group input[type="text"],
+  .form-group input[type="password"],
+  .form-group input[type="email"],
+  .form-group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Error message style */
+  span.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Additional styles or modifications as needed */
+  
