@@ -6,6 +6,7 @@ import { RestaurantComponent } from './component/restaurant/restaurant.component
 import { CartComponent } from './component/cart/cart.component';
 import { SecurityComponent } from './component/security/security.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
+import { CustomerComponent } from './component/customer/customer.component';
 
 const routes: Routes = [{
   path:'',component:HomeComponent 
@@ -24,6 +25,9 @@ const routes: Routes = [{
 },
 {
   path:'login',component:SecurityComponent
+},
+{
+  path:'Customerlogin',component:CustomerComponent
 },
 {
   path:'**',component:NotFoundComponent

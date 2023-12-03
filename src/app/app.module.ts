@@ -15,6 +15,7 @@ import { MenuComponent } from './component/menu/menu.component';
 import { RestaurantComponent } from './component/restaurant/restaurant.component';
 import { CartComponent } from './component/cart/cart.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
+import { CustomerComponent } from './component/customer/customer.component';
 
 
 
@@ -29,7 +30,8 @@ import { NotFoundComponent } from './component/not-found/not-found.component';
     MenuComponent,
     RestaurantComponent,
     CartComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
