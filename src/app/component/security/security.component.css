@@ -12,7 +12,10 @@ body {
     /* Other styles if needed */
   }
   
- 
+ .table table-bordered{
+  background-color: white;
+  color: black;
+ }
 
 h2{
     color: white;

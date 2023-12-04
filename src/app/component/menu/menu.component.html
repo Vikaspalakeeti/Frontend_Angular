@@ -7,7 +7,7 @@
 {{response}}
 <h6>{{response}}</h6>
 <div *ngIf="response && response.length > 0">
-  <table border="1">
+  <table border="1" class="table table-bordered">
     <!-- Table headers -->
     <thead>
       <tr>
@@ -100,7 +100,7 @@
     <!-- Modify the delete button to call the deleteById method with the entered ID -->
     <button type="button" class="btn btn-primary btn-sm" (click)="getByName()">get</button>
     </div>
-    {{getresponseName|json}}
+    <!-- {{getresponseName|json}} -->
     <div *ngIf="getresponseName">
       <h2>Menu Details</h2>
       <table class="table table-bordered">
