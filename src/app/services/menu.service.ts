@@ -19,24 +19,24 @@
 
   }
 
-  addAdmin(addAdmin: Menu, token: string): Observable<Menu> {
+  add(add: Menu, token: string): Observable<Menu> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.post<Menu>(`${this.baseURL}Menu/addMenu`, addAdmin, { headers });
+    return this.http.post<Menu>(`${this.baseURL}Menu/addMenu`, add, { headers });
   }
 
 
-  delete(adminId: number, token: any): Observable<string> {
+  delete(Id: number, token: any): Observable<string> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.delete<string>(`${this.baseURL}Menu/deleteById/${adminId}`, { headers });
+    return this.http.delete<string>(`${this.baseURL}Menu/deleteById/${Id}`, { headers });
   }
 
-  getName(adminName: String, token: any): Observable<Menu> {
+  getName(Name: String, token: any): Observable<Menu> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<Menu>(`${this.baseURL}Menu/getByItemName/${adminName}`, { headers });
+    return this.http.get<Menu>(`${this.baseURL}Menu/getByItemName/${Name}`, { headers });
   }
-  updateMenu(updatedAdmin: Menu, token: string): Observable<Menu> {
+  update(update: Menu, token: string): Observable<Menu> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.put<Menu>(`${this.baseURL}Menu/updateMenu`,updatedAdmin, { headers });
+    return this.http.put<Menu>(`${this.baseURL}Menu/updateMenu`,update, { headers });
   }
 
   }

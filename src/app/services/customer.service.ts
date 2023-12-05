@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { customer } from '../model/customer';
+import { Customer } from '../model/customer';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class CustomerService {
 
     }
 
-    authorizationTest(token:any){
+    getAll(token:any){
 
           let tokenString = "Bearer "+token;
 
@@ -28,20 +28,20 @@ export class CustomerService {
         return this.http.get(this.baseURL+"customers/getAllCustomers",{headers,responseType:'text' as 'json'});
 
     }
-    insert(body:customer):Observable<customer>{
+    insert(body:Customer):Observable<Customer>{
 
       console.log(body);
 
-        return this.http.post<customer>(this.baseURL+"customers/addCustomers",body);
+        return this.http.post<Customer>(this.baseURL+"customers/addCustomers",body);
 
     }
-    delete(adminId: number, token: any): Observable<string> {
+    delete(customerId: number, token: any): Observable<string> {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      return this.http.delete<string>(`${this.baseURL}customers/deleteByCustomers/${adminId}`, { headers });
+      return this.http.delete<string>(`${this.baseURL}customers/deleteByCustomers/${customerId}`, { headers });
     }
-    updateAdmin(updatedAdmin: customer, token: string): Observable<customer> {
+    updateAdmin(updateCustomer: Customer, token: string): Observable<Customer> {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      return this.http.put<customer>(`${this.baseURL}customers/updateCustomers`, updatedAdmin, { headers });
+      return this.http.put<Customer>(`${this.baseURL}customers/updateCustomers`, updateCustomer, { headers });
     }
   
   }

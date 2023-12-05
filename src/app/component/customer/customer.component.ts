@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthRequest } from 'src/app/model/AuthRequest';
-import { customer } from 'src/app/model/customer';
+import { Customer } from 'src/app/model/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
@@ -30,7 +30,7 @@ export class CustomerComponent {
     });
   }
   public accessApi(token: any) {
-    let response = this.jwtService.authorizationTest(token);
+    let response = this.jwtService.getAll(token);
     response.subscribe((responseData: any) => {
       if (typeof responseData === 'string') {
         this.response = JSON.parse(responseData); // Parse string to array
@@ -41,9 +41,9 @@ export class CustomerComponent {
       }
     });
   }
-  isshowFormVisible: boolean = false;
+  isShowFormVisible: boolean = false;
   showForm() {
-    this.isshowFormVisible = !this.isshowFormVisible;
+    this.isShowFormVisible = !this.isShowFormVisible;
   }
   isFormVisible: boolean = false;
   toggleForm() {
@@ -53,15 +53,15 @@ export class CustomerComponent {
   deleteForm() {
     this.isdeleteFormVisible = !this.isdeleteFormVisible;
   }
-  isupdateFormVisible: boolean = false;
+  isUpdateFormVisible: boolean = false;
   updateForm() {
-    this.isupdateFormVisible = !this.isupdateFormVisible;
+    this.isUpdateFormVisible = !this.isUpdateFormVisible;
   }
 
 
 
 
-  insertEmployee(data:customer){
+  insertEmployee(data:Customer){
     console.log(data)
     
     this.admService.insert(data)
@@ -91,7 +91,7 @@ update(formData: any) {
 
   const password: string = formData.form.value.password;
 
-  const updatedAdmin: customer = {
+  const updatedAdmin: Customer = {
     
 
     customerId:customerId,
@@ -106,7 +106,7 @@ update(formData: any) {
 
   this.admService.updateAdmin(updatedAdmin, this.token)
     .subscribe(
-      (updatedAdmin: customer) => {
+      (updatedAdmin: Customer) => {
         console.log('Updated Admin is: ', updatedAdmin);
         // Handle any further logic or UI updates after a successful update
       },

@@ -15,8 +15,8 @@ export class SecurityComponent {
   getName!:String;
   adminDetails: Admin | undefined;
   response: any;
-  getresponse:any;
-  getresponseName:any;
+  getResponse:any;
+  getResponseName:any;
   token: any;
   authRequest: AuthRequest = new AuthRequest();
   static token: any;
@@ -39,7 +39,7 @@ export class SecurityComponent {
   }
 
   public accessApi(token: any) {
-    let response = this.jwtService.authorizationTest(token);
+    let response = this.jwtService.getAll(token);
     response.subscribe((responseData: any) => {
       if (typeof responseData === 'string') {
         this.response = JSON.parse(responseData); // Parse string to array
@@ -98,14 +98,14 @@ export class SecurityComponent {
   getById(){
     this.getAccessToken(this.authRequest);
     this.jwtService.getId(this.getId,this.token).subscribe((msg) => {
-      this.getresponse=msg
+      this.getResponse=msg
       console.log("get id is success " + msg);
     });
   }
   getByName(){
     this.getAccessToken(this.authRequest);
     this.jwtService.getName(this.getName,this.token).subscribe((msg) => {
-      this.getresponseName=msg
+      this.getResponseName=msg
       console.log("get Name is success " + msg);
     });
   }

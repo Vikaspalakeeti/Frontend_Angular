@@ -7,6 +7,7 @@ body {
     background-image: url('../../../assets/resta.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    color: white;
     /* Other styles if needed */
   }
   h2.text-center {

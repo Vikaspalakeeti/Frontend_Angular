@@ -4,8 +4,7 @@
 
    <h2 class="text-center">Menu Page</h2>
 <button (click)="getall()">Get Menu</button>
-{{response}}
-<h6>{{response}}</h6>
+
 <div *ngIf="response && response.length > 0">
   <table border="1" class="table table-bordered">
     <!-- Table headers -->
@@ -72,7 +71,7 @@
 <br>
 <br>
 <div class="text-center">
-<button (click)="deleteForm()" class="btn btn-success">Delete Admin</button>
+<button (click)="deleteForm()" class="btn btn-success">Delete Menu</button>
 </div>
 
 <div *ngIf="isdeleteFormVisible">
@@ -89,7 +88,7 @@
 <br>
 <br>
 <div class="text-center">
-  <button (click)="getFormName()" class="btn btn-success">Get Name</button>
+  <button (click)="getFormName()" class="btn btn-success">Get Menu</button>
   </div>
   <div *ngIf="isgetFormNameVisible">
     <div  class="form-group">

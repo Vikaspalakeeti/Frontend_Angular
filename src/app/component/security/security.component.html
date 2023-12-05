@@ -4,7 +4,7 @@
 
 
 <div class="text-center">
-<button (click)="showForm()" class="btn btn-success ">Show All Date</button>
+<button (click)="showForm()" class="btn btn-success ">Show All Data</button>
 </div>
 
 <div *ngIf="isshowFormVisible" class="container  col-lg-4">
@@ -12,7 +12,7 @@
         <div class="form-group">
           <label for="exampleInputEmail1">UserName</label>
           <input type="username" class="form-control" name="username"  required  #username="ngModel"  ngModel       >
-          <small id="userHelp" class="form-text text-muted">We'll never share your user details with anyone else.</small><br>
+          <small id="userHelp" class="form-text text-muted">Enter Proper Name</small><br>
           <span style="color:red"  *ngIf="username.touched && username.invalid" >UserName is required</span>
         </div>
         <div class="form-group">
@@ -114,8 +114,8 @@
 <!-- Modify the delete button to call the deleteById method with the entered ID -->
 <button type="button" class="btn btn-primary btn-sm" (click)="getById()">get</button>
 </div>
-{{getresponse|json}}
-<div *ngIf="getresponse">
+{{getResponse|json}}
+<div *ngIf="getResponse">
   <h2>Admin Details</h2>
   <table class="table table-bordered">
     <thead>
@@ -127,9 +127,9 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{ getresponse.adminId }}</td>
-        <td>{{ getresponse.userName }}</td>
-        <td>{{ getresponse.password }}</td>
+        <td>{{ getResponse.adminId }}</td>
+        <td>{{ getResponse.userName }}</td>
+        <td>{{ getResponse.password }}</td>
       </tr>
     </tbody>
   </table>
@@ -150,8 +150,8 @@
     <!-- Modify the delete button to call the deleteById method with the entered ID -->
     <button type="button" class="btn btn-primary btn-sm" (click)="getByName()">get</button>
     </div>
-    <!-- {{getresponseName|json}} -->
-    <div *ngIf="getresponseName">
+    <!-- {{getResponseName|json}} -->
+    <div *ngIf="getResponseName">
       <h2>Admin Details</h2>
       <table class="table table-bordered">
         <thead>
@@ -163,9 +163,9 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{ getresponseName.adminId }}</td>
-            <td>{{ getresponseName.userName }}</td>
-            <td>{{ getresponseName.password }}</td>
+            <td>{{ getResponseName.adminId }}</td>
+            <td>{{ getResponseName.userName }}</td>
+            <td>{{ getResponseName.password }}</td>
           </tr>
         </tbody>
       </table>

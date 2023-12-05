@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit{
 
     
     this.menuService=jwtService;
-    this.key=admintoken.Token;
+    this.key=admintoken.token;
     this.key.subscribe((genToken: any) => {
       this.adminKey = genToken;
       // console.log(genToken);
@@ -97,7 +97,7 @@ export class MenuComponent implements OnInit{
       menuItemId: 0
     };
   
-    this.menuService.addAdmin(updatedAdmin, this.adminKey)
+    this.menuService.add(updatedAdmin, this.adminKey)
       .subscribe(
         (updatedAdmin: Menu) => {
           console.log('Updated Admin is: ', updatedAdmin);
@@ -148,7 +148,7 @@ export class MenuComponent implements OnInit{
       menuItemId: menuItemId
     };
   
-    this.menuService.updateMenu(updatedAdmin, this.adminKey)
+    this.menuService.update(updatedAdmin, this.adminKey)
       .subscribe(
         (updatedAdmin: Menu) => {
           console.log('Updated Admin is: ', updatedAdmin);

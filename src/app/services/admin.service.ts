@@ -15,15 +15,15 @@ export class AdminService {
 
   baseURL:string = 'http://localhost:8185/api/';
  
-Token:any;
+token:any;
   getGeneratedToken(requestBody: any){
 
-        this.Token= this.http.post(this.baseURL+"login/adminlogin",requestBody,{responseType: 'text' as 'json'});
-        return this.Token;
+        this.token= this.http.post(this.baseURL+"login/adminlogin",requestBody,{responseType: 'text' as 'json'});
+        return this.token;
 
     }
 
-    authorizationTest(token:any){
+    getAll(token:any){
 
           let tokenString = "Bearer "+token;
 
@@ -54,7 +54,7 @@ Token:any;
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       return this.http.get<Admin>(`${this.baseURL}Admin/getByName/${adminName}`, { headers });
     }
-    // admin.service.ts
+    
 
 updateAdmin(updatedAdmin: Admin, token: string): Observable<Admin> {
   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);

@@ -23,7 +23,7 @@ export class RestaurantComponent {
 
     
     this.menuService=jwtService;
-    this.key=admintoken.Token;
+    this.key=admintoken.token;
     this.key.subscribe((genToken: any) => {
       this.adminKey = genToken;
       // console.log(genToken);
@@ -52,7 +52,7 @@ export class RestaurantComponent {
   }
   isaddFormVisible: boolean = false;
   addForm() {
-    this.isaddFormVisible = !this.isaddFormVisible;
+    // this.isaddFormVisible = !this.isaddFormVisible;
   }
   isdeleteFormVisible: boolean = false;
   deleteForm() {
@@ -64,7 +64,7 @@ export class RestaurantComponent {
   }
   isupdateFormVisible: boolean = false;
   updateForm() {
-    this.isupdateFormVisible = !this.isupdateFormVisible;
+    // this.isupdateFormVisible = !this.isupdateFormVisible;
   }
 
 
@@ -74,18 +74,18 @@ export class RestaurantComponent {
     const cuisineType: string = formData.form.value.cuisineType;
     const locations: string = formData.form.value.locations;
     const rating: number = formData.form.value.rating;
+    const customerIds: [] = formData.form.value.customerIds;
+  
   
   
 
     const updatedAdmin: Restaurants = {
-     
-
-
-      restaurantId:0,
-      restaurantName:restaurantName,
-      cuisineType:cuisineType,
-      locations:locations,
-      rating:rating
+      restaurantId: 0,
+      restaurantName: restaurantName,
+      cuisineType: cuisineType,
+      locations: locations,
+      rating: rating,
+      customerIds: customerIds
     };
   
     this.menuService.addAdmin(updatedAdmin, this.adminKey)
@@ -117,17 +117,17 @@ export class RestaurantComponent {
     const cuisineType: string = formData.form.value.cuisineType;
     const locations: string = formData.form.value.locations;
     const rating: number = formData.form.value.rating;
+    const customerIds: number[] = formData.form.value.customerIds;
 
   
     const updatedAdmin: Restaurants = {
-      
-      
-      restaurantId:restaurantId,
-   
-      restaurantName:restaurantName,
-      cuisineType:cuisineType,
+      restaurantId: restaurantId,
+
+      restaurantName: restaurantName,
+      cuisineType: cuisineType,
       locations: locations,
-      rating:rating
+      rating: rating,
+      customerIds: []
     };
   
     this.menuService.updateMenu(updatedAdmin, this.adminKey)

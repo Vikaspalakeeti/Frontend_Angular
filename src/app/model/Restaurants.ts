@@ -5,5 +5,6 @@ export class Restaurants{
     cuisineType:string='';
     locations:string='';
     rating:number=0;  
+    customerIds: [] | undefined  
  }
  

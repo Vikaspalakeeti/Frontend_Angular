@@ -4,8 +4,7 @@
  
     <h2 class="text-center">Cart Page</h2>
     <button (click)="getall()">Get Cart</button>
-    {{response}}
-    <h6>{{response}}</h6>
+    
     <div *ngIf="response && response.length > 0">
       <table border="1" class="table table-bordered">
         <!-- Table headers -->
@@ -52,7 +51,7 @@
 <div class="text-center">
   <button (click)="addForm()" class="btn btn-success ">Add Cart</button>
 </div>
-<div *ngIf="isaddFormVisible" class="container  col-lg-4">
+<div *ngIf="isAddFormVisible" class="container  col-lg-4">
   <form   #formData=ngForm  (ngSubmit)="add(formData)" >
 
 
@@ -122,7 +121,7 @@
 <button (click)="deleteForm()" class="btn btn-success">Delete cart</button>
 </div>
 
-<div *ngIf="isdeleteFormVisible">
+<div *ngIf="isDeleteFormVisible">
 <div  class="form-group">
   <label for="deleteId">Enter ID to Delete:</label>
   <input type="number" class="form-control" name="deleteId" [(ngModel)]="deleteId" required>
@@ -139,7 +138,7 @@
 <div class="text-center">
   <button (click)="updateForm()" class="btn btn-success ">Update Cart</button>
 </div>
-<div *ngIf="isupdateFormVisible" class="container  col-lg-4">
+<div *ngIf="isUpdateFormVisible" class="container  col-lg-4">
   <form   #formData=ngForm  (ngSubmit)="update(formData)" >
     
       

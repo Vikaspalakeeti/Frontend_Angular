@@ -9,7 +9,7 @@ import { NotFoundComponent } from './component/not-found/not-found.component';
 import { CustomerComponent } from './component/customer/customer.component';
 
 const routes: Routes = [{
-  path:'',component:HomeComponent 
+  path:'',component:SecurityComponent 
 },
 {
   path:'home',component:HomeComponent

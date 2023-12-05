@@ -20,21 +20,21 @@ export class CartService {
   
     }
 
-    addAdmin(addAdmin: Cart, token: string): Observable<Cart> {
+    add(addCart: Cart, token: string): Observable<Cart> {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      return this.http.post<Cart>(`${this.baseURL}cart/addCart`, addAdmin, { headers });
+      return this.http.post<Cart>(`${this.baseURL}cart/addCart`, addCart, { headers });
     }
   
   
-    delete(adminId: number, token: any): Observable<string> {
+    delete(Id: number, token: any): Observable<string> {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      return this.http.delete<string>(`${this.baseURL}cart/deleteById/${adminId}`, { headers });
+      return this.http.delete<string>(`${this.baseURL}cart/deleteById/${Id}`, { headers });
     }
   
     
-    updateMenu(updatedAdmin: Cart, token: string): Observable<Cart> {
+    updateMenu(updatedcart: Cart, token: string): Observable<Cart> {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      return this.http.put<Cart>(`${this.baseURL}cart/updateCart`,updatedAdmin, { headers });
+      return this.http.put<Cart>(`${this.baseURL}cart/updateCart`,updatedcart, { headers });
     }
   
 

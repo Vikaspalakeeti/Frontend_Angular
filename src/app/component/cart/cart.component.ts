@@ -17,14 +17,13 @@ export class CartComponent {
   authRequest: Cart = new Cart();
   deleteId!: number;
   getName!:String;
-  getresponseName:any;
 
 
   constructor(private jwtService:CartService,admintoken:AdminService){
 
     
     this.menuService=jwtService;
-    this.key=admintoken.Token;
+    this.key=admintoken.token;
     this.key.subscribe((genToken: any) => {
       this.adminKey = genToken;
       // console.log(genToken);
@@ -55,21 +54,21 @@ export class CartComponent {
   }
 
 
-  isaddFormVisible: boolean = false;
+  isAddFormVisible: boolean = false;
   addForm() {
-    this.isaddFormVisible = !this.isaddFormVisible;
+    this.isAddFormVisible = !this.isAddFormVisible;
   }
-  isdeleteFormVisible: boolean = false;
+  isDeleteFormVisible: boolean = false;
   deleteForm() {
-    this.isdeleteFormVisible = !this.isdeleteFormVisible;
+    this.isDeleteFormVisible = !this.isDeleteFormVisible;
   }
-  isgetFormNameVisible: boolean = false;
+  isGetFormNameVisible: boolean = false;
   getFormName() {
-    this.isgetFormNameVisible = !this.isgetFormNameVisible;
+    this.isGetFormNameVisible = !this.isGetFormNameVisible;
   }
-  isupdateFormVisible: boolean = false;
+  isUpdateFormVisible: boolean = false;
   updateForm() {
-    this.isupdateFormVisible = !this.isupdateFormVisible;
+    this.isUpdateFormVisible = !this.isUpdateFormVisible;
   }
 
 
@@ -99,7 +98,7 @@ export class CartComponent {
 
     };
   
-    this.menuService.addAdmin(updatedAdmin, this.adminKey)
+    this.menuService.add(updatedAdmin, this.adminKey)
       .subscribe(
         (updatedAdmin: Cart) => {
           console.log('Updated cart is: ', updatedAdmin);
