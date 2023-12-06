@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  isAdminLoggedIn: boolean = false;
+  isDropdownOpen: boolean = false;
 
+  toggleDropdown(isOpen: boolean) {
+    this.isDropdownOpen = isOpen;
+  }
 }

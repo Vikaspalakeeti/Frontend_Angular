@@ -6,7 +6,7 @@
 
 /* CSS for setting background image */
 body {
-    background-image: url('../../../assets/customer.jpg');
+    background-image: url('../../../assets/skyblue.jpg');
     background-size: cover; /* This property ensures the image covers the entire background */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     /* Other styles if needed */
@@ -17,9 +17,28 @@ body {
   color: black;
  }
 
+
+table th {
+  background-color: white;
+  color: black;
+}
+
+/* Apply styles to table rows */
+table td {
+  background-color: white;
+  color: black;
+}
+
+.form-group {
+  background-color: white;
+  color: black;
+}
+
+
+
 h2{
-    color: white;
-    background-color: indigo;
+    color: black;
+   
 }
   
   /* Styling for the buttons */

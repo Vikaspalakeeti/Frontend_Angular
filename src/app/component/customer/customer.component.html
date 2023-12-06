@@ -13,12 +13,12 @@
           <label for="exampleInputEmail1">UserName</label>
           <input type="username" class="form-control" name="username"  required  #username="ngModel"  ngModel       >
           <small id="userHelp" class="form-text text-muted">Enter Proper Name</small><br>
-          <span style="color:red"  *ngIf="username.touched && username.invalid" >UserName is required</span>
+          <span style="color:white"  *ngIf="username.touched && username.invalid" >UserName is required</span>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
           <input type="password" class="form-control"  name="password"  required  #pwd="ngModel"   ngModel>
-          <span style="color:red"   *ngIf="pwd.touched && pwd.invalid" >Password is mandartory</span>
+          <span style="color:white"   *ngIf="pwd.touched && pwd.invalid" >Password is mandartory</span>
         </div>
 
         <button type="submit" class="btn btn-primary" [disabled]="formData.invalid"  >Submit</button>
@@ -60,7 +60,7 @@
 
 
 
-  <br>
+  
 <div class="text-center">
 <button (click)="toggleForm()" class="btn btn-success">Add Customer</button>
 </div>
@@ -69,27 +69,27 @@
 <form *ngIf="isFormVisible" #myform="ngForm"  method="post"  class="container col-md-4" (ngSubmit)="insertEmployee(myform.value)">
     
     <div class="form-group">
-    Cuatomer Name:<input type="text" class="form-control"  #usernamecontrol="ngModel" name="customerName"  required ngModel>
-    <span  style="color: red;"  *ngIf="usernamecontrol.touched && usernamecontrol.invalid">User Name is Mandatory</span>
+    Customer Name:<input type="text" class="form-control"  #usernamecontrol="ngModel" name="customerName"  required ngModel>
+    <span  style="color: white;"  *ngIf="usernamecontrol.touched && usernamecontrol.invalid">User Name is Mandatory</span>
     </div>
 
     <div class="form-group">
       email:<input type=email class="form-control"  #emailcontrol="ngModel" name="email"  required ngModel>
-      <span  style="color: red;"  *ngIf="emailcontrol.touched && emailcontrol.invalid">email is Mandatory</span>
+      <span  style="color: white;"  *ngIf="emailcontrol.touched && emailcontrol.invalid">email is Mandatory</span>
       </div>
 
       <div class="form-group">
         Phone Number:<input type=text class="form-control"  #numbercontrol="ngModel" name="phoneNumber"  required ngModel>
-        <span  style="color: red;"  *ngIf="numbercontrol.touched && numbercontrol.invalid">Number is Mandatory</span>
+        <span  style="color: white;"  *ngIf="numbercontrol.touched && numbercontrol.invalid">Number is Mandatory</span>
         </div>
         <div class="form-group">
           Address:<input type=text class="form-control"  #locationcontrol="ngModel" name="deliveryAddress"  required ngModel>
-          <span  style="color: red;"  *ngIf="locationcontrol.touched && locationcontrol.invalid">Location is Mandatory</span>
+          <span  style="color: white;"  *ngIf="locationcontrol.touched && locationcontrol.invalid">Location is Mandatory</span>
           </div>
 
     <div class="form-group">
         Password:<input type="text" class="form-control"  #pwdcontrol="ngModel" name="password"  required ngModel>
-        <span  style="color: red;"  *ngIf="pwdcontrol.touched && pwdcontrol.invalid">Password is Mandatory</span>
+        <span  style="color: white;"  *ngIf="pwdcontrol.touched && pwdcontrol.invalid">Password is Mandatory</span>
     </div>
     
 
@@ -100,8 +100,7 @@
 
 
 
-<br>
-<br>
+
 <div class="text-center">
 <button (click)="deleteForm()" class="btn btn-success">Delete Customer</button>
 </div>
@@ -121,8 +120,7 @@
 
 
 
-<br>
-<br>
+
 <div class="text-center">
   <button (click)="updateForm()" class="btn btn-success ">Update Customer</button>
 </div>
@@ -131,37 +129,37 @@
     <div class="form-group">
     
       Customer Id:<input type="number" class="form-control" name="customerId"  required  #customerId="ngModel"  ngModel>
-      <span style="color:red"  *ngIf="customerId.touched && customerId.invalid" >UserName is required</span>
+      <span style="color:white"  *ngIf="customerId.touched && customerId.invalid" >UserName is required</span>
     </div>
     <div class="form-group">
       
       customerName:<input type="text" class="form-control" name="customerName"  required  #customerName="ngModel"  ngModel>
-      <span style="color:red"  *ngIf="customerName.touched && customerName.invalid" >UserName is required</span>
+      <span style="color:white"  *ngIf="customerName.touched && customerName.invalid" >UserName is required</span>
     </div>
     <div class="form-group">
       
       email:<input type="text" class="form-control" name="email"  required  #email="ngModel"  ngModel>
-      <span style="color:red"  *ngIf="email.touched && email.invalid" >UserName is required</span>
+      <span style="color:white"  *ngIf="email.touched && email.invalid" >UserName is required</span>
     </div>
     <div class="form-group">
       
       phoneNumber:<input type="text" class="form-control" name="phoneNumber"  required  #phoneNumber="ngModel"  ngModel>
-      <span style="color:red"  *ngIf="phoneNumber.touched && phoneNumber.invalid" >UserName is required</span>
+      <span style="color:white"  *ngIf="phoneNumber.touched && phoneNumber.invalid" >UserName is required</span>
     </div>
     <div class="form-group">
 
       deliveryAddress:<input type="text" class="form-control" name="deliveryAddress"  required  #deliveryAddress="ngModel"  ngModel>
-      <span style="color:red"  *ngIf="deliveryAddress.touched && deliveryAddress.invalid" >UserName is required</span>
+      <span style="color:white"  *ngIf="deliveryAddress.touched && deliveryAddress.invalid" >UserName is required</span>
     </div>
     <div class="form-group">
       
       Password:<input type="text" class="form-control"  name="password"  required  #pwd="ngModel"   ngModel>
-      <span style="color:red"   *ngIf="pwd.touched && pwd.invalid" >Password is mandartory</span>
+      <span style="color:white"   *ngIf="pwd.touched && pwd.invalid" >Password is mandartory</span>
     </div>
 
     <button type="submit" class="btn btn-primary" [disabled]="formData.invalid"  >Submit</button>
   </form>
 </div>
-<br>
+
 </body>
 </html>

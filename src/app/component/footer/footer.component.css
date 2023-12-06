@@ -2,6 +2,7 @@ body{
     background-color: #eef8ff;
 }
 
+/* Define the styles for the footer */
 
   
   
@@ -10,7 +11,8 @@ footer{
     
     
     bottom: 0;
-    background: linear-gradient(to right,#000000,  rgb(0, 0, 0));    color: #fff;
+    background-color: lightskyblue;
+    color: black;
     padding: 70px 0 30px ; 
    
     font-size: 13px;
@@ -56,26 +58,19 @@ footer{
     position: relative;
 }
 
-.mailid{
-    width: fit-content;
-    border-bottom: 1px solid #ccc;
-    margin: 20px 0;
-}
+
 ul li{
     list-style: none;
     margin-bottom: 12px;
 }
-ul li a{
-    text-decoration: none;
-    color: #fff;
-}
+
 
 form{
     padding-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid black;   /*under line under suscribe */
     margin-bottom: 50px;
 
 }
@@ -93,13 +88,13 @@ form input{
    outline: none;
 }
 
-form button{
+/* form button{
     background:transparent;
     border:0;
     outline: none;
     cursor: pointer;
 
- }
+ } */
  form button{
     background:#eef8ff;
     border:0;
@@ -132,7 +127,7 @@ form button{
 hr{
     width:90%;
     border: 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid black;
     margin:20px auto;
 
 }
@@ -142,28 +137,7 @@ hr{
 }
 
 
-.underline{
-    width: 100px;
-    height: 5px;
-    background: #767676;
-    border-radius: 3px;
-    position: absolute;
-    top:25px;
-    left: 0px;
 
-}
-
-.underline span{
-    width: 15px;
-    height: 100%;
-    background: #fff;
-    border-radius: 3px;
-    position: absolute;
-    top:0px;
-    left: 10px;
-    animation: moving 2s linear infinite;
-
-}
 
 @keyframes moving{
     0%{
@@ -177,7 +151,7 @@ hr{
 .underline {
     width: 100px;
     height: 5px;
-    background: #767676;
+    background: white;
     border-radius: 3px;
     position: absolute;
     top: 40px; /* Increase this value to move the lines down */
@@ -187,7 +161,7 @@ hr{
   .underline span {
     width: 15px;
     height: 100%;
-    background: #fff;
+    background: black;
     border-radius: 3px;
     position: absolute;
     top: 0px;
@@ -195,4 +169,28 @@ hr{
     animation: moving 2s linear infinite;
   }
   
+  /* Other existing styles remain unchanged */
+
+/* Adjust placeholder color and font color of the email */
+form input::placeholder {
+    color: black; /* Placeholder color */
+  }
   
+  form input[type="email"]:focus {
+    color: black; /* Font color while typing */
+  }
+  
+  /* Set all links in the footer to black color */
+  ul li a {
+    color: black !important;
+  }
+  
+  
+
+
+
+
+.main-content {
+    margin-bottom: -10px; /* Adjust the value */
+  }
+    
