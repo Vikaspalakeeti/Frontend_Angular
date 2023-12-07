@@ -1,40 +1,66 @@
-
- body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightskyblue;
+  padding: 20px;
 }
 
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
 
-/* Your existing CSS */
+.dropdown-content.show {
+  display: block;
+}
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: lightskyblue;
-    padding: 20px;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content.show {
-    display: block;
-  }
-  
-  /* Your button styles */
-  /* ... */
-  
+/* Common button styles */
+.nav-button,
+.header-button,
+.login-button,
+.dropbtn {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #000;
+  background-color: #fff; /* White background color */
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer; /* Change cursor to pointer */
+  border: 1px solid #000;
+}
+
+.nav-button:hover,
+.header-button:hover,
+.login-button:hover {
+  background-color: lightgray;
+}
+
+/* Other menu item styles */
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #333; /* Change hover color as needed */
+}

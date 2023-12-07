@@ -1,4 +1,6 @@
+
 import { Component } from '@angular/core';
+import { AdminService } from '../../services/admin.service'; // Update this path
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isAdminLoggedIn: boolean = false;
+
+  
+
+  
   isDropdownOpen: boolean = false;
 
   toggleDropdown(isOpen: boolean) {
     this.isDropdownOpen = isOpen;
-  }
-}
+
+
+ 
+}}

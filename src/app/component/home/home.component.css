@@ -5,7 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Make sure the body spans the entire viewport height */
-    background-image: url('../../../assets/home2.jpg');
+    background-image: url('../../../assets/white3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     /* Other styles if needed */
