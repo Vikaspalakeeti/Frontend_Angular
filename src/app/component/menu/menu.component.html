@@ -8,6 +8,7 @@
 <div *ngIf="response && response.length > 0">
   <table border="1" class="table table-bordered">
     <!-- Table headers -->
+    <!-- {{response|json}} -->
     <thead>
       <tr>
         <th>restaurantId</th>
@@ -20,7 +21,7 @@
     <!-- Table body -->
     <tbody>
       <tr *ngFor="let admin of response">
-        <td>{{ admin.restaurantId }}</td>
+        <td>{{ admin.restaurants.restaurantId }}</td>
         <td>{{ admin.menuItemId }}</td>
         <td>{{ admin.itemName }}</td>
         <td>{{ admin.description }}</td>
@@ -101,6 +102,7 @@
     </div>
     <!-- {{getresponseName|json}} -->
     <div *ngIf="getresponseName">
+      
       <h2>Menu Details</h2>
       <table class="table table-bordered">
         <thead>

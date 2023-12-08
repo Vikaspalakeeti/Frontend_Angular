@@ -3,21 +3,25 @@
   <body>
  
     <h2 class="text-center">Cart Page</h2>
-    <button (click)="getall()">Get Cart</button>
+    <div class="container">
+      <button class="btn btn-success" (click)="getall()">Get Cart</button>
+    </div>
     
     <div *ngIf="response && response.length > 0">
       <table border="1" class="table table-bordered">
         <!-- Table headers -->
+        <!-- {{response|json}} -->
         <thead>
           <tr>
             <th>cartId</th>
             <th>customerId</th>
             <th>restaurantId</th>
-            <th>itemId</th>
             <th>price</th>
             <th>quantity</th>
             <th>total</th>
-            <th>orderId</th>
+            <th>itemId</th>
+            
+            
 
 
            
@@ -30,13 +34,20 @@
         <tbody>
           <tr *ngFor="let admin of response">
             <td>{{ admin.cartId }}</td>
-            <td>{{ admin.customerId }}</td>
-            <td>{{ admin.restaurantId }}</td>
-            <td>{{ admin.itemId }}</td>
+            <td>{{ admin.customers.customerId }}</td>
+            <td>{{ admin.restaurants.restaurantId }}</td>
             <td>{{ admin.price }}</td>
             <td>{{ admin.quantity }}</td>
             <td>{{ admin.total }}</td>
-            <td>{{ admin.orderId }}</td>
+            <!-- <td>{{ admin.menuItems.menuItemId }}</td> -->
+            <!-- <td><ng-container *ngFor="let menuItem of admin.menuItems; let last = last">
+              {{ menuItem.menuItemId }}{{ last ? '' : ', ' }}
+          </ng-container></td> -->
+          <td><ng-container *ngFor="let menuItem of admin.menuItems; let last = last">
+            {{ menuItem.menuItemId }}{{ last ? '' : ', ' }}
+          </ng-container></td>
+            
+            
             
           </tr>
         </tbody>
@@ -49,7 +60,7 @@
     <br>
 <br>
 <div class="text-center">
-  <button (click)="addForm()" class="btn btn-success ">Add Cart</button>
+  <button (click)="addForm()" class="btn btn-success">Add Cart</button>
 </div>
 <div *ngIf="isAddFormVisible" class="container  col-lg-4">
   <form   #formData=ngForm  (ngSubmit)="add(formData)" >
@@ -70,7 +81,9 @@
 
   <div class="form-group">
     
-    itemId :<input type="number" class="form-control" name="itemId"  required  #itemId="ngModel"  ngModel>
+    itemId :<input type="text" class="form-control" name="itemId"  required  #itemId="ngModel"  ngModel>
+    <!-- itemId :<input type="text" class="form-control" name="itemId" required [(ngModel)]="formData.itemId" /> -->
+
   <span style="color:red"  *ngIf="itemId.touched && itemId.invalid" >itemId is required</span>
 </div>
 
@@ -99,11 +112,11 @@
 
 
 
-<div class="form-group">
+<!-- <div class="form-group">
     
   orderId :<input type="number" class="form-control" name="orderId"  required  #orderId="ngModel"  ngModel>
 <span style="color:red"  *ngIf="orderId.touched && orderId.invalid" >orderId is required</span>
-</div>
+</div> -->
 
 
 
@@ -206,10 +219,10 @@
 
 
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       orderId :<input type="number" class="form-control" name="orderId"  required  #orderId="ngModel"  ngModel>
       <span style="color:red"  *ngIf="orderId.touched && orderId.invalid" >orderId is required</span>
-    </div>
+    </div> -->
     
     
     <button type="submit" class="btn btn-primary" [disabled]="formData.invalid"  >Submit</button>

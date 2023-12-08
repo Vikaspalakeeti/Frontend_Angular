@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Restaurants } from 'src/app/model/Restaurants';
 import { AdminService } from 'src/app/services/admin.service';
+import { CustomerService } from 'src/app/services/customer.service';
 import { RestaurantsService } from 'src/app/services/restaurants.service';
 
 @Component({
@@ -19,16 +20,32 @@ export class RestaurantComponent {
   getName!:String;
   getresponseName:any;
 
-  constructor(private jwtService:RestaurantsService,admintoken:AdminService){
+  admin:boolean=false;
+  customer:boolean=false;
+
+  constructor(private jwtService:RestaurantsService,admintoken:AdminService,customertoken:CustomerService){
 
     
     this.menuService=jwtService;
+    if(admintoken.admin==true){
+      this.admin=true;
+      this.customer=false;
     this.key=admintoken.token;
     this.key.subscribe((genToken: any) => {
       this.adminKey = genToken;
       // console.log(genToken);
       // this.accessApi(this.adminKey);
+    });}
+    if(customertoken.customer==true){
+      this.admin=false;
+      this.customer=true;
+      this.key=customertoken.token;
+    this.key.subscribe((genToken: any) => {
+      this.adminKey = genToken;
+      // console.log(genToken);
+      // this.accessApi(this.adminKey);
     });
+    }
     
    }
 
@@ -52,7 +69,7 @@ export class RestaurantComponent {
   }
   isaddFormVisible: boolean = false;
   addForm() {
-    // this.isaddFormVisible = !this.isaddFormVisible;
+    this.isaddFormVisible = !this.isaddFormVisible;
   }
   isdeleteFormVisible: boolean = false;
   deleteForm() {
@@ -64,17 +81,17 @@ export class RestaurantComponent {
   }
   isupdateFormVisible: boolean = false;
   updateForm() {
-    // this.isupdateFormVisible = !this.isupdateFormVisible;
+    this.isupdateFormVisible = !this.isupdateFormVisible;
   }
 
 
   add(formData: any) {
-    
+    console.log(formData);
     const restaurantName: string = formData.form.value.restaurantName;
     const cuisineType: string = formData.form.value.cuisineType;
-    const locations: string = formData.form.value.locations;
+    const location: string = formData.form.value.location;
     const rating: number = formData.form.value.rating;
-    const customerIds: [] = formData.form.value.customerIds;
+    // const customerIds: [] = formData.form.value.customerIds;
   
   
   
@@ -83,12 +100,14 @@ export class RestaurantComponent {
       restaurantId: 0,
       restaurantName: restaurantName,
       cuisineType: cuisineType,
-      locations: locations,
+      location: location,
       rating: rating,
-      customerIds: customerIds
+      // customerIds: customerIds
+      
     };
-  
+    console.log(updatedAdmin);
     this.menuService.addAdmin(updatedAdmin, this.adminKey)
+    
       .subscribe(
         (updatedAdmin: Restaurants) => {
           console.log('Updated Restaurant is: ', updatedAdmin);
@@ -112,12 +131,13 @@ export class RestaurantComponent {
   }
   
   update(formData: any) {
+    console.log(formData);
     const restaurantId: number = formData.form.value.restaurantId;
     const restaurantName: string = formData.form.value.restaurantName;
     const cuisineType: string = formData.form.value.cuisineType;
-    const locations: string = formData.form.value.locations;
+    const location: string = formData.form.value.location;
     const rating: number = formData.form.value.rating;
-    const customerIds: number[] = formData.form.value.customerIds;
+    // const customerIds: number[] = formData.form.value.customerIds;
 
   
     const updatedAdmin: Restaurants = {
@@ -125,9 +145,9 @@ export class RestaurantComponent {
 
       restaurantName: restaurantName,
       cuisineType: cuisineType,
-      locations: locations,
+      location: location,
       rating: rating,
-      customerIds: []
+      // customerIds: []
     };
   
     this.menuService.updateMenu(updatedAdmin, this.adminKey)

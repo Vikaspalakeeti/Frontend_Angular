@@ -9,6 +9,7 @@
     <div *ngIf="response && response.length > 0">
       <table border="1" class="table table-bordered">
         <!-- Table headers -->
+        <!-- {{response|json}} -->
         <thead>
           <tr>
             <th>restaurantId</th>
@@ -16,7 +17,7 @@
             <th>cuisineType</th>
             <th>location</th>
             <th>rating</th>
-            <th>customerIds</th>
+            
 
           </tr>
         </thead>
@@ -46,8 +47,8 @@
 
     <br>
 <br>
-<div class="text-center">
-  <button (click)="addForm()" class="btn btn-success ">Add Restaurants</button>
+<div  class="text-center" >
+  <button (click)="addForm()" class="btn btn-success " >Add Restaurants</button>
 </div>
 <div *ngIf="isaddFormVisible" class="container  col-lg-4">
   <form   #formData=ngForm  (ngSubmit)="add(formData)" >
@@ -65,8 +66,8 @@
 
 
        <div class="form-group">
-        locations:<input type="text" class="form-control" name="locations"  required  #locations="ngModel"  ngModel>
-         <span style="color:red"  *ngIf="locations.touched && locations.invalid" >locations is required</span>
+        location:<input type="text" class="form-control" name="location"  required  #location="ngModel"  ngModel>
+         <span style="color:red"  *ngIf="location.touched && location.invalid" >location is required</span>
        </div>
 
        <div class="form-group">
@@ -74,10 +75,10 @@
         <span style="color:red"  *ngIf="rating.touched && rating.invalid" >rating is required</span>
       </div>
     
-      <div class="form-group">
+      <!-- <div class="form-group">
         customerIds:<input type="text" class="form-control" name="customerId"  required  #customerId="ngModel"  ngModel>
          <span style="color:red"  *ngIf="customerId.touched && customerId.invalid" >customerId is required</span>
-       </div>
+       </div> -->
 
 
 
@@ -116,11 +117,11 @@
   <form   #formData=ngForm  (ngSubmit)="update(formData)" >
     
       
-    restaurantId:0,
+    <!-- restaurantId:0,
     restaurantName:restaurantName,
     cuisineType:cuisineType,
     locations:locations,
-    rating:rating
+    rating:rating -->
 
     <div class="form-group">
         restaurantId :<input type="number" class="form-control" name="restaurantId"  required  #restaurantId="ngModel"  ngModel>
@@ -141,8 +142,8 @@
        </div>
 
        <div class="form-group">
-        locations:<input type="text" class="form-control" name="locations"  required  #locations="ngModel"  ngModel>
-         <span style="color:red"  *ngIf="locations.touched && locations.invalid" >locations is required</span>
+        location:<input type="text" class="form-control" name="location"  required  #location="ngModel"  ngModel>
+         <span style="color:red"  *ngIf="location.touched && location.invalid" >location is required</span>
        </div>
 
        <div class="form-group">
@@ -150,6 +151,7 @@
       <span style="color:red"  *ngIf="rating.touched && rating.invalid" >rating is required</span>
     </div>
 
+    <button type="submit" class="btn btn-primary" [disabled]="formData.invalid"  >Update</button>
 
     
        

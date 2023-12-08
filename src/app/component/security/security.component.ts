@@ -35,6 +35,8 @@ export class SecurityComponent {
       this.token = genToken;
       console.log(genToken);
       this.accessApi(this.token);
+      alert('Logged in successfully!');
+
     });
   }
 
@@ -80,7 +82,7 @@ export class SecurityComponent {
 
   insertEmployee(data:Admin){
     
-        this.admService.insert(data)
+        this.jwtService.insert(data)
         .subscribe(
           (adm)=>{console.log('Added Admin is: '+adm);}
           );

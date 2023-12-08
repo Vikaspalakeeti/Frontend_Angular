@@ -11,7 +11,9 @@ export class CartService {
   baseURL:string = 'http://localhost:8185/';
 
 
-  getAll(token:any){
+  // getAll(token:any){
+    getAll(token: any): Observable<any> {
+
     console.log('In Cart Service: GET ALL');
     console.log(token);
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);

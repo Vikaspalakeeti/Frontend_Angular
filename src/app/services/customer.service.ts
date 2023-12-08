@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Customer } from '../model/customer';
+import { Customer } from '../model/Customer';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +9,14 @@ import { Customer } from '../model/customer';
 export class CustomerService {
 
   constructor(private http:HttpClient) { }
-
+token:any;
+customer:any
   baseURL:string = 'http://localhost:8185/';
 
   getGeneratedToken(requestBody: any){
-
-        return this.http.post(this.baseURL+"api/login/customerlogin",requestBody,{responseType: 'text' as 'json'});
+    this.token= this.http.post(this.baseURL+"api/login/customerlogin",requestBody,{responseType: 'text' as 'json'});
+    this.customer=true;
+    return this.token;
 
     }
 

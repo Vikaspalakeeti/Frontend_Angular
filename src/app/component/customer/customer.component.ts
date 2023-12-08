@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthRequest } from 'src/app/model/AuthRequest';
-import { Customer } from 'src/app/model/customer';
+import { Customer } from 'src/app/model/Customer';
+
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
@@ -23,10 +24,11 @@ export class CustomerComponent {
   }
   public getAccessToken(authRequest: any) {
     let response = this.jwtService.getGeneratedToken(authRequest);
-    response.subscribe((genToken) => {
+    response.subscribe((genToken:any) => {
       this.token = genToken;
       console.log(genToken);
        this.accessApi(this.token);
+       alert('Logged in successfully!');
     });
   }
   public accessApi(token: any) {

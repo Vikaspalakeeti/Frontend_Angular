@@ -1,26 +1,24 @@
 import { Component } from '@angular/core';
-import { Cart } from 'src/app/model/Cart';
+import { Orders } from 'src/app/model/Orders';
 import { AdminService } from 'src/app/services/admin.service';
-import { CartService } from 'src/app/services/cart.service';
 import { CustomerService } from 'src/app/services/customer.service';
+import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  selector: 'app-orders',
+  templateUrl: './orders.component.html',
+  styleUrls: ['./orders.component.css']
 })
-export class CartComponent {
-
+export class OrdersComponent {
   key:any;
   response: any;
   menuService:any
   adminKey:any;
-  authRequest: Cart = new Cart();
+  authRequest: Orders = new Orders();
   deleteId!: number;
   getName!:String;
-
-
-  // constructor(private jwtService:CartService,admintoken:AdminService){
+  getresponseName:any;
+  // constructor(private jwtService:OrdersService,admintoken:AdminService){
 
     
   //   this.menuService=jwtService;
@@ -36,7 +34,7 @@ export class CartComponent {
   admin:boolean=false;
   customer:boolean=false;
 
-  constructor(private jwtService:CartService,admintoken:AdminService,customertoken:CustomerService){
+  constructor(private jwtService:OrdersService,admintoken:AdminService,customertoken:CustomerService){
 
     
     this.menuService=jwtService;
@@ -62,7 +60,6 @@ export class CartComponent {
     
    }
 
-
    public getall(){
     this.accessApi(this.adminKey)
     console.log(this.adminKey);
@@ -82,60 +79,53 @@ export class CartComponent {
       } 
     });
   }
-
-
-  isAddFormVisible: boolean = false;
+  isaddFormVisible: boolean = false;
   addForm() {
-    this.isAddFormVisible = !this.isAddFormVisible;
+    this.isaddFormVisible = !this.isaddFormVisible;
   }
-  isDeleteFormVisible: boolean = false;
+  isdeleteFormVisible: boolean = false;
   deleteForm() {
-    this.isDeleteFormVisible = !this.isDeleteFormVisible;
+    this.isdeleteFormVisible = !this.isdeleteFormVisible;
   }
-  isGetFormNameVisible: boolean = false;
+  isgetFormNameVisible: boolean = false;
   getFormName() {
-    this.isGetFormNameVisible = !this.isGetFormNameVisible;
+    this.isgetFormNameVisible = !this.isgetFormNameVisible;
   }
-  isUpdateFormVisible: boolean = false;
+  isupdateFormVisible: boolean = false;
   updateForm() {
-    this.isUpdateFormVisible = !this.isUpdateFormVisible;
+    this.isupdateFormVisible = !this.isupdateFormVisible;
   }
 
 
   add(formData: any) {
     const customerId: number = formData.form.value.customerId;
     const restaurantId: number = formData.form.value.restaurantId;
-    const itemId: number[] = formData.form.value.itemId;
-    const price: number = formData.form.value.price;
-    const quantity: number = formData.form.value.quantity;
-    const total: number = formData.form.value.total;
+    const deliveryAddress: string = formData.form.value.deliveryAddress;
     
-    console.log(customerId, restaurantId, itemId, price,quantity, total);
-   
   
-    const updatedAdmin: Cart = {
-     
+    const paymentMethod: string = formData.form.value.paymentMethod;
+  
+    const totalAmount: number = formData.form.value.totalAmount;
 
-
+  
+    const updatedAdmin: Orders = {
       cartId:0,
-   customerId:customerId,
-   restaurantId:restaurantId,
-   itemId:itemId,
-   price:price,
-   quantity: quantity,
-   total:total,
-  
-
+      customerId: customerId,
+      restaurantId: restaurantId,
+      deliveryAddress: deliveryAddress,
+      paymentMethod: paymentMethod,
+      totalAmount: totalAmount
     };
+    
   
     this.menuService.add(updatedAdmin, this.adminKey)
       .subscribe(
-        (updatedAdmin: Cart) => {
-          console.log('Updated cart is: ', updatedAdmin);
+        (updatedAdmin: Orders) => {
+          console.log('Updated Admin is: ', updatedAdmin);
           // Handle any further logic or UI updates after a successful update
         },
         (error: any) => {
-          console.error('Error updating cart: ', error);
+          console.error('Error updating Admin: ', error);
           // Handle error scenarios
         }
       );
@@ -150,35 +140,33 @@ export class CartComponent {
       console.log("Deleted " + msg);
     });
   }
-  
+
   update(formData: any) {
-    console.log(formData.value);
     const cartId: number = formData.form.value.cartId;
 
     const customerId: number = formData.form.value.customerId;
     const restaurantId: number = formData.form.value.restaurantId;
-    const itemId: number[] = formData.form.value.itemId;
-    const price: number = formData.form.value.price;
-    const quantity: number = formData.form.value.quantity;
-    const total: number = formData.form.value.total;
+    const deliveryAddress: string = formData.form.value.deliveryAddress;
     
+  
+    const paymentMethod: string = formData.form.value.paymentMethod;
+  
+    const totalAmount: number = formData.form.value.totalAmount;
 
   
-    const updatedAdmin: Cart = {
+    const updatedAdmin: Orders = {
       
       cartId:cartId,
-   customerId:customerId,
-   restaurantId:restaurantId,
-   itemId:itemId,
-   price:price,
-   quantity: quantity,
-   total:total,
-   
+      customerId: customerId,
+      restaurantId: restaurantId,
+      deliveryAddress: deliveryAddress,
+      paymentMethod: paymentMethod,
+      totalAmount: totalAmount
     };
   
-    this.menuService.updateMenu(updatedAdmin, this.adminKey)
+    this.menuService.update(updatedAdmin, this.adminKey)
       .subscribe(
-        (updatedAdmin: Cart) => {
+        (updatedAdmin: Orders) => {
           console.log('Updated Admin is: ', updatedAdmin);
           // Handle any further logic or UI updates after a successful update
         },
@@ -187,8 +175,11 @@ export class CartComponent {
           // Handle error scenarios
         }
       );
+  }
+  
 
 
 
-}
+
+
 }

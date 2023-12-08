@@ -20,6 +20,8 @@ export class RestaurantsService {
     }
 
     addAdmin(addAdmin: Restaurants, token: string): Observable<Restaurants> {
+      console.log(addAdmin);
+      console.log('restarant service');
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       return this.http.post<Restaurants>(`${this.baseURL}Restaurants/addRestaurants`, addAdmin, { headers });
     }

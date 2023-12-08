@@ -7,16 +7,11 @@ import { CartComponent } from './component/cart/cart.component';
 import { SecurityComponent } from './component/security/security.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import { CustomerComponent } from './component/customer/customer.component';
+import { OrdersComponent } from './component/orders/orders.component';
 
-const routes: Routes = [
-
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to home by default
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: SecurityComponent }, // Assuming LoginComponent handles both admin and customer login
-  // Other paths...
-//   {
-//   path:'',component:SecurityComponent 
-// },
+const routes: Routes = [{
+  path:'',component:HomeComponent 
+},
 {
   path:'home',component:HomeComponent
 },
@@ -29,11 +24,14 @@ const routes: Routes = [
 {
   path:'cart',component:CartComponent
 },
-// {
-//   path:'login',component:SecurityComponent
-// },
+{
+  path:'login',component:SecurityComponent
+},
 {
   path:'Customerlogin',component:CustomerComponent
+},
+{
+  path:'orders',component:OrdersComponent
 },
 {
   path:'**',component:NotFoundComponent

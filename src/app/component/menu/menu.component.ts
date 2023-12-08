@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu.service';
 import { AdminService } from 'src/app/services/admin.service';
 import { Menu } from 'src/app/model/Menu';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-menu',
@@ -19,16 +20,46 @@ export class MenuComponent implements OnInit{
    getresponseName:any;
 
   
-   constructor(private jwtService:MenuService,admintoken:AdminService){
+  //  constructor(private jwtService:MenuService,admintoken:AdminService){
+
+    
+  //   this.menuService=jwtService;
+  //   this.key=admintoken.token;
+  //   this.key.subscribe((genToken: any) => {
+  //     this.adminKey = genToken;
+  //     // console.log(genToken);
+  //     // this.accessApi(this.adminKey);
+  //   });
+    
+  //  }
+
+
+  admin:boolean=false;
+  customer:boolean=false;
+
+  constructor(private jwtService:MenuService,admintoken:AdminService,customertoken:CustomerService){
 
     
     this.menuService=jwtService;
+    if(admintoken.admin==true){
+      this.admin=true;
+      this.customer=false;
     this.key=admintoken.token;
     this.key.subscribe((genToken: any) => {
       this.adminKey = genToken;
       // console.log(genToken);
       // this.accessApi(this.adminKey);
+    });}
+    if(customertoken.customer==true){
+      this.admin=false;
+      this.customer=true;
+      this.key=customertoken.token;
+    this.key.subscribe((genToken: any) => {
+      this.adminKey = genToken;
+      // console.log(genToken);
+      // this.accessApi(this.adminKey);
     });
+    }
     
    }
   ngOnInit(): void {

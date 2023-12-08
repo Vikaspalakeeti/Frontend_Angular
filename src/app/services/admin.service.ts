@@ -5,15 +5,10 @@ import { Observable } from 'rxjs';
 import { Admin } from '../model/Admin';
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
- 
-
-
  
 
   constructor(private http:HttpClient) { }
@@ -21,9 +16,11 @@ export class AdminService {
   baseURL:string = 'http://localhost:8185/api/';
  
 token:any;
+admin:any;
   getGeneratedToken(requestBody: any){
 
         this.token= this.http.post(this.baseURL+"login/adminlogin",requestBody,{responseType: 'text' as 'json'});
+        this.admin=true;
         return this.token;
 
     }
@@ -41,6 +38,7 @@ token:any;
     insert(body:Admin):Observable<Admin>{
 
       console.log(body);
+      console.log('ok')
 
         return this.http.post<Admin>(this.baseURL+"Admin/addAdmin",body);
 
