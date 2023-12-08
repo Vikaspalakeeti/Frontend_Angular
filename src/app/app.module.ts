@@ -17,6 +17,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import { CustomerComponent } from './component/customer/customer.component';
 import { OrdersComponent } from './component/orders/orders.component';
+import { AdmindashboardComponent } from './component/admindashboard/admindashboard.component';
 
 
 
@@ -33,7 +34,8 @@ import { OrdersComponent } from './component/orders/orders.component';
     CartComponent,
     NotFoundComponent,
     CustomerComponent,
-    OrdersComponent
+    OrdersComponent,
+    AdmindashboardComponent
   ],
   imports: [
     BrowserModule,
