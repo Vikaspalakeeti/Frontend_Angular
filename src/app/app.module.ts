@@ -18,6 +18,7 @@ import { NotFoundComponent } from './component/not-found/not-found.component';
 import { CustomerComponent } from './component/customer/customer.component';
 import { OrdersComponent } from './component/orders/orders.component';
 import { AdmindashboardComponent } from './component/admindashboard/admindashboard.component';
+import { CustomerdashboardComponent } from './component/customerdashboard/customerdashboard.component';
 
 
 
@@ -35,7 +36,8 @@ import { AdmindashboardComponent } from './component/admindashboard/admindashboa
     NotFoundComponent,
     CustomerComponent,
     OrdersComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    CustomerdashboardComponent
   ],
   imports: [
     BrowserModule,
